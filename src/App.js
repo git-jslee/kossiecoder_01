@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Movie from "./components/Movie";
 
 function App() {
   const movies = [
@@ -8,12 +9,7 @@ function App() {
   ];
 
   const renderMovies = movies.map((movie) => {
-    return (
-      <div className="movie" key={movie.title}>
-        <div className="movie-title">{movie.title}</div>
-        <div className="movie-year">{movie.year}</div>
-      </div>
-    );
+    return <Movie movie={movie} key={movie.title} />;
   });
 
   return (
