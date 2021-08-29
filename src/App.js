@@ -3,19 +3,25 @@ import Movie from "./components/Movie";
 import MovieForm from "./components/MovieForm";
 
 function App() {
-  const [movies, setMovies] = useState([
-    { title: "CWCC-1", year: 2020 },
-    { title: "CWCC-2", year: 2021 },
-    { title: "CWCC-3", year: 2022 },
-  ]);
+  const [movies, setMovies] = useState([]);
 
-  const renderMovies = movies.map((movie) => {
-    return <Movie movie={movie} key={movie.title} />;
-  });
+  const removeMovie = (id) => {
+    console.log(id);
+    setMovies(
+      movies.filter((movie) => {
+        return movie.id !== id;
+      })
+    );
+  };
+
+  const renderMovies = movies.length
+    ? movies.map((movie) => {
+        return <Movie movie={movie} key={movie.id} removeMovie={removeMovie} />;
+      })
+    : "추가된 영화가 없습니다.";
 
   const addMovie = (movie) => {
     setMovies([...movies, movie]);
-    console.log(movie);
   };
 
   return (
