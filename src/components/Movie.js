@@ -1,7 +1,6 @@
 import React from "react";
 
-function Movie({ movie, key }) {
-  console.log(movie);
+function Movie({ movie }) {
   return (
     <div className="movie">
       <div className="movie-title">{movie.title}</div>
