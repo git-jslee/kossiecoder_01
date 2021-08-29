@@ -3,6 +3,7 @@ import Movie from "./components/Movie";
 import MovieForm from "./components/MovieForm";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Users from "./pages/Users";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -30,19 +31,21 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <Switch>
-          <Route path="/movies">
-            <h1>Movie list</h1>
-            <MovieForm addMovie={addMovie} />
-            {renderMovies}
-          </Route>
-          <Route path="/users">
-            <h1>Users</h1>
-          </Route>
-          <Route path="/">
-            <h1>Home</h1>
-          </Route>
-        </Switch>
+        <div className="container">
+          <Switch>
+            <Route path="/movies">
+              <h1>Movie list</h1>
+              <MovieForm addMovie={addMovie} />
+              {renderMovies}
+            </Route>
+            <Route path="/users">
+              <Users />
+            </Route>
+            <Route path="/">
+              <h1>Home</h1>
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );
